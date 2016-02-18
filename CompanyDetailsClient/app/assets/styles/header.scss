@@ -1,0 +1,276 @@
+/**
+*Header css begin
+**/
+#cd-navbar {
+  font-size: $header-font-size;
+  border-radius: 0px;
+  background-color: $header-bg-color;
+  margin-bottom: 0px;
+  min-height: $header-min-height;
+  border: 0px;
+  button.navbar-toggle.collapsed {
+    padding-right: 0px;
+    padding-top: 13px;
+    border: 0px;
+    width: auto;
+    &:hover {
+      background: transparent !important;
+    }
+    span {
+      border-radius: 0px;
+      height: 4px;
+      width: 31px;
+    }
+  }
+}
+
+.language-btn-group{
+  padding-top:10px;
+  @include breakpoint(phone){
+    margin-left: 15px;
+    ul.dropdown-menu > li > a {
+      color:#fff !important;
+    }
+  }
+
+  @include breakpoint(tablet){
+    margin-left: 15px;
+    ul.dropdown-menu > li > a {
+      color:#fff !important;
+    }
+  }
+}
+@include breakpoint(tablet) {
+  .navbar-collapse.navmenu {
+    ul li a {
+      margin-left: 0px;
+      padding-left: 0px;
+    }
+  }
+}
+@include breakpoint(phone) {
+  .navbar-collapse.navmenu {
+    ul li a {
+      margin-left: 15px;
+      padding-left: 0px;
+    }
+  }
+}
+.active-li{
+  color: #337ab7 !important;
+}
+
+.cd-header-container {
+  margin-left: auto;
+  margin-right: auto;
+  @include breakpoint(desktop) {
+    width: $header-container-desktop-width;
+  }
+  @include breakpoint(tablet) {
+    width: auto !important;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  @include breakpoint(phone) {
+    width: auto !important;
+  }
+
+  .extra-space-div{
+    height: 0;
+    max-height: 0;
+    width: 0;
+    @include breakpoint(phone){
+      height: 3px;
+      max-height: 3px !important;
+    }
+    @include breakpoint(tablet){
+      max-height: 0;
+      width:0;
+    }
+  }
+
+}
+
+
+
+.cd-header-container .navbar-header {
+  @include breakpoint(tablet) {
+    padding-left: 23px;
+    padding-right: 40px;
+  }
+
+  @include breakpoint(phone) {
+    padding-left: 4.7%;
+    padding-right: 6px;
+  }
+
+  .navbar-toggle{
+    background-color: $header-bg-color;
+    margin-right: 0;
+    @include breakpoint(phone) {
+      padding:0px;
+    }
+  }
+}
+
+.logo-provided-text {
+  color: #fff;
+  font-size: $font-size-abs-small;
+  line-height: 21.6px;
+  padding-top: 20px;
+  text-align: left;
+  padding-right: 16px;
+  padding-left: 28px;
+
+  @include breakpoint(phone) {
+    padding-left: 6px;
+    font-size: 10px;
+    padding-top: 15px;
+    padding-right: 5px;
+  }
+}
+
+.header-row {
+  .col-xs-4 {
+    padding-left: 10px;
+    padding-right: 0px;
+    padding-top: 10px;
+  }
+}
+
+.navmenu ul.navbar-nav > li > a {
+
+  color: $header-font-color;
+  &:hover {
+    //box-shadow: $header-font-color-hover 0px 3px 0px 0px inset;
+    color: $header-font-color-hover;
+  }
+
+
+  @include breakpoint(phone) {
+    color: $button-font-color;
+    &:hover {
+      box-shadow: none;
+      color: $button-font-color;
+    }
+  }
+
+  @include breakpoint(tablet) {
+    color: $button-font-color;
+    &:hover {
+      box-shadow: none;
+      color: $button-font-color;
+    }
+  }
+}
+
+.navmenu {
+  position: absolute;
+  width: 100%;
+  z-index: 999;
+  right: 0px;
+  @include breakpoint(phone) {
+    background-color: $button-bg-color;
+  }
+
+  @include breakpoint(tablet) {
+    background-color: $button-bg-color;
+  }
+
+  ul.navbar-nav {
+    margin: 4px 0 0;
+    float: right;
+
+    @include breakpoint(phone) {
+      margin: 3px 0 0;
+      float: left;
+      padding-left: 0 !important;
+    }
+
+    @include breakpoint(tablet) {
+      margin: 3px 0 0;
+      padding-left: 25px;
+      float: left;
+    }
+
+    li {
+      padding-left: 10px;
+      padding-right: 20px;
+
+      @include breakpoint(phone) {
+        padding-left: 0px;
+        margin-left: -15px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+
+      @include breakpoint(tablet) {
+        padding-left: 0px;
+        margin-left: -15px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+    }
+  }
+}
+
+.cd-logo{
+  height: 50px;
+  width: 50px;
+}
+
+#container {
+  padding-top: 5px;
+  padding-bottom: 6px;
+  width: 350px;
+  @include breakpoint(phone) {
+    padding-top: 5px;
+    text-align: left;
+    width: 290px !important;
+    div {
+      display: inline-block;
+
+    }
+    #div1 {
+      width: 24%;
+    }
+    #div2 {
+      width: 54%;
+    }
+  }
+
+  @include breakpoint(tablet) {
+    width: 360px;
+  }
+}
+
+#div1 {
+  float: left;
+  display: inline-block;
+  padding-top: 1px;
+  width:18%;
+}
+
+#div2 {
+  color: #88cfff;
+ padding-top: 10px !important;
+  display: inline-block;
+  width:54%;
+}
+
+.cd-header {
+  height:61px;
+  padding-left: 15px;
+  padding-right: 9px;
+  @include breakpoint(tablet) {
+    padding-left: 15px;
+  }
+
+  @include breakpoint(phone){
+    padding-left: 0px;
+  }
+}
+
+/**
+*Header css end
+**/

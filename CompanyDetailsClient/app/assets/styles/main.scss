@@ -1,0 +1,74 @@
+@import "variables.scss";
+@import "mixins.scss";
+@import "header.scss";
+@import "footer.scss";
+@import "home.scss";
+@import "error.scss";
+@import "beneficialOwner.scss";
+
+body {
+    background: $body-background-color;
+    font-family: 'Open Sans';
+}
+
+/***
+*common css
+**/
+.parent{
+    margin-bottom: $footer-height;
+    min-height: -webkit-calc(100vh - #{$footer-height} - #{$header-min-height} - 2px);
+    min-height: -moz-calc(100vh - #{$footer-height} - #{$header-min-height} - 2px);
+    min-height: calc(100vh - #{$footer-height} - #{$header-min-height} - 2px);
+}
+
+p {
+    font-size: $para-font-size;
+    margin-bottom: 5px;
+    line-height: $para-line-height;
+    color:$para-font-color;
+    margin-top: 0;
+
+    @include breakpoint(phone){
+        margin-left: 3px;
+        margin-right: -5px;
+        padding-right: 13px;
+    }
+}
+
+.cd-container {
+    max-width: $container-desktop-width;
+    @include breakpoint(tablet) {
+        max-width: $container-tablet-width;
+    }
+    @include breakpoint(phone){
+        max-width: $container-phone-width;
+        padding: 0 30px;
+    }
+}
+
+.button-row {
+    margin: 20px 0;
+}
+.error{
+    color:$error-text-color;
+    font-size:$error-font;
+    font-weight: 400;
+    text-align: left;
+    @include breakpoint(phone){
+        font-size: 13px;
+    }
+    
+    span{
+        clear: left;
+        float: left;
+    }
+}
+
+.success{
+    @extend .error;
+    color:$success-text-color;
+}
+
+.errordiv{
+    padding-left: 0px;
+}

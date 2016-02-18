@@ -1,0 +1,48 @@
+/**
+    * CenturyLink Home Page Css begin
+    **/
+
+#mainWrapper {
+  height: 70%;
+  background-color: $body-background-color;
+}
+.floatRight {
+  float: right;
+  margin-right: 18px;
+}
+
+.formcontainer {
+  background-color: #DAE8E8;
+  padding: 20px;
+}
+
+.tablecontainer {
+  padding-left: 20px;
+}
+
+.generic-container {
+  width: 80%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #EAE7E7;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 0 30px black;
+  margin-left: 10%;
+}
+
+.custom-width {
+  width: 80px !important;
+}
+
+.modal{
+  display: block;
+}
+
+.control-lable{
+  font-size: 13px;
+}
+/**
+* CenturyLink Home Page Css end
+**/

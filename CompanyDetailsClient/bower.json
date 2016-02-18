@@ -1,0 +1,27 @@
+{
+  "name": "LanguageTranslatePGI.v2",
+  "version": "0.0.0",
+  "authors": [
+    "Pratibha Pandey"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.0",
+    "bootstrap": "^3.3.6",
+    "underscore": "^1.8.3",
+    "lodash": "^4.3.0",
+    "angular-animate": "^1.5.0",
+    "angular-bootstrap": "^1.1.2",
+    "angular-ui-router": "^0.2.18"
+  },
+  "devDependencies": {
+
+  }
+}

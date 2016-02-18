@@ -1,0 +1,32 @@
+@mixin breakpoint($point) {
+  @if $point == tablet {
+    @media (min-width:767px) and (max-width: 991px) {
+      @content;
+    }
+  } @else if $point == phone {
+    @media (max-width: 767px) {
+      @content;
+    }
+  } @else if($point == desktop){
+    @media(min-width: 992px){
+      @content;
+    }
+  }
+}
+
+@mixin well($padding-top) {
+
+    &.well{
+      margin-bottom: 0px;
+      border:0px;
+      padding-top: $padding-top;
+      border-radius: 0px;
+    }
+}
+
+@mixin anchor(){
+  a{
+    text-decoration: underline;
+    color:$button-bg-color;
+  }
+}

@@ -1,0 +1,57 @@
+<div class="generic-container" ng-controller="BeneficialOwnerController as ctrl">
+    <div class="panel panel-default">
+        <div class="panel-heading"><span class="lead">Add BeneficialOwner Form </span></div>
+        <div class="formcontainer">
+
+            <form ng-submit="ctrl.submitBeneficialOwnerForm()" name="bo_form" class="form-horizontal" novalidate>
+                <input type="hidden" ng-model="ctrl.companyDetails.companyId" />
+                <div ng-class="ctrl.beneficialOwnersAddSuccess?'success':'error'">
+                    <span ng-show="ctrl.beneficialOwnersAddSuccess">Beneficial Owner(s) added successfully.</span>
+                    <span ng-show="ctrl.beneficialOwnersAddFailure">Unable to update Beneficial Owner(s).</span>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label class="col-md-2 control-lable">Company Name</label>
+                        <div class="col-md-7">
+                            {{ctrl.companyDetails.companyName}}
+                        </div>
+                    </div>
+                </div>
+                <fieldset>
+                    <legend>Beneficial Owners</legend>
+                        <div class="beneficialOwnerDetails" ng-repeat="beneficiaryOwner in ctrl.beneficialOwnerDetails">
+                            <ng-form name="boFieldForm">
+                            <div class="row">
+                                <div class="form-group col-md-12">
+                                    <label class="col-md-2 control-lable">Beneficial Owner {{$index + 1}}</label>
+                                    <div class="col-md-7">
+                                        <input type="text" ng-model="beneficiaryOwner.beneficialOwnerName" name="beneficialOwnerName" maxlength="45" class="form-control input-sm" placeholder="Enter Beneficial Owner Name" required ng-minlength="2"/>
+                                        <div class="error">
+                                            <span ng-show="boFieldForm.beneficialOwnerName.$error.required">This is a required field.</span>
+                                            <span ng-show="boFieldForm.beneficialOwnerName.$error.minlength">The minimum length of field ishould be 2.</span>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-2">
+                                        <a href="" ng-click="ctrl.addBORow()" ng-show="$last">
+                                            <img class="plus-icon-sign img-responsive" src="assets/images/plus.png">
+                                        </a>
+                                        <a href="" ng-click="ctrl.deleteBORow($index)" ng-show="beneficiaryOwner.beneficialOwnerId ==0">
+                                            <img class="minus-icon-sign img-responsive" src="assets/images/minus.png">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            </ng-form>
+                        </div>
+                </fieldset>
+                <div class="row button-row">
+                    <div class="form-actions floatRight">
+                        <input type="submit"  ng-click="ctrl.beneficial_owner_form_submitted=true" value="Submit" class="btn btn-primary btn-sm" ng-disabled="bo_form.$invalid">
+                        <button type="button" ng-click="ctrl.resetBeneficialOwnerForm()" class="btn btn-warning btn-sm" ng-disabled="company_form.$pristine">Reset Form</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,125 @@
+<div class="generic-container" ng-controller="HomeController as ctrl">
+    <div class="panel panel-default">
+        <div class="panel-heading"><span class="lead">Company Registration Form </span></div>
+        <div class="formcontainer">
+            <div class="row">
+                <div class="col-md-12">
+                    <label class="col-md-2 control-lable" ></label>
+                    <div class="col-md-7 errordiv">
+                        <div class="error"
+                             ng-show="ctrl.company_form_submitted || (company_form.companyname.$touched && company_form.companyname.$invalid && company_form.$invalid) || (company_form.address.$touched && company_form.address.$invalid && company_form.$invalid) || (company_form.city.$touched && company_form.city.$invalid && company_form.$invalid)">
+                            <span ng-show="company_form.companyname.$error.required && company_form.companyname.$dirty && company_form.companyname.$touched  || company_form.companyname.$error.required && ctrl.company_form_submitted">Company name is a required field.</span>
+                            <span ng-show="company_form.address.$error.required && company_form.address.$dirty && company_form.address.$touched  || company_form.address.$error.required && ctrl.company_form_submitted">Address is a required field.</span>
+                            <span ng-show="company_form.city.$error.required && company_form.city.$dirty && company_form.city.$touched  || company_form.city.$error.required && ctrl.company_form_submitted">City is a required field.</span>
+                            <span ng-show="company_form.country.$error.required && company_form.country.$dirty && company_form.country.$touched  || company_form.country.$error.required && ctrl.company_form_submitted">Country is a required field.</span>
+                            <span ng-show="company_form.companyname.$error.minlength && company_form.companyname.$dirty && company_form.companyname.$touched  || company_form.companyname.$error.minlength && ctrl.company_form_submitted">Minimum length of name should be 3 characters</span>
+                            <span ng-show="company_form.address.$error.minlength && company_form.address.$dirty && company_form.address.$touched  || company_form.address.$error.minlength && ctrl.company_form_submitted">Minimum length of address should be 3 characters</span>
+                            <span ng-show="company_form.city.$error.minlength && company_form.city.$dirty && company_form.city.$touched  || company_form.city.$error.minlength && ctrl.company_form_submitted">Minimum length of city should be 2 characters</span>
+                            <span ng-show="company_form.country.$error.minlength && company_form.country.$dirty && company_form.country.$touched  || company_form.country.$error.minlength && ctrl.company_form_submitted">Minimum length of country should be 2 characters</span>
+                            <span ng-show="company_form.email.$error.pattern && company_form.email.$dirty && company_form.email.$touched  || company_form.email.$error.pattern && userCtrl.company_form_submitted">Invalid email address format.</span>
+                            <span ng-show="company_form.phone.$error.pattern && company_form.phone.$dirty && company_form.phone.$touched  || company_form.phone.$error.pattern && userCtrl.company_form_submitted">Invalid phone format.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <form ng-submit="ctrl.submitCompanyForm()" name="company_form" class="form-horizontal" novalidate>
+                <input type="hidden" ng-model="ctrl.companydetails.companyId" />
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label class="col-md-2 control-lable">Name</label>
+                        <div class="col-md-7">
+                            <input type="text" ng-model="ctrl.companydetails.companyName" name="companyname" maxlength="45" class="form-control input-sm" placeholder="Enter company name" required ng-minlength="3"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label class="col-md-2 control-lable" >Address</label>
+                        <div class="col-md-7">
+                            <input type="text" name="address" ng-model="ctrl.companydetails.address" maxlength="100" class="form-control input-sm" placeholder="Enter address." required ng-minlength="3"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label class="col-md-2 control-lable" >City</label>
+                        <div class="col-md-7">
+                            <input type="text" name="city" ng-model="ctrl.companydetails.city" maxlength="45" class="form-control input-sm" placeholder="Enter city." required ng-minlength="3"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label class="col-md-2 control-lable" >Country</label>
+                        <div class="col-md-7">
+                            <input type="text" name="country" ng-model="ctrl.companydetails.country" maxlength="45" class="form-control input-sm" placeholder="Enter country." required ng-minlength="2"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label class="col-md-2 control-lable" >Phone</label>
+                        <div class="col-md-7">
+                            <input type="text" name="phone" ng-model="ctrl.companydetails.phone"
+                                   ng-model-options="{ updateOn: 'blur' }" maxlength="12"
+                                   ng-pattern="/^\d{6,12}$/"
+                                   class="form-control input-sm" placeholder="Enter phone."/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label class="col-md-2 control-lable" >Email</label>
+                        <div class="col-md-7">
+                            <input type="text" name="email" ng-model-options="{ updateOn: 'blur' }" maxlength="60"
+                                   ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,5})$/"
+                                   ng-model="ctrl.companydetails.email" class="form-control input-sm" placeholder="Enter email."/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-actions floatRight">
+                        <input type="submit"  ng-click="ctrl.company_form_submitted=true" value="{{!ctrl.companydetails.companyId ? 'Add' : 'Update'}}" class="btn btn-primary btn-sm">
+                        <button type="button" ng-click="ctrl.resetCompanyDetailsForm()" class="btn btn-warning btn-sm" ng-disabled="company_form.$pristine">Reset Form</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading"><span class="lead">List of companies </span></div>
+        <div class="tablecontainer">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Company Name</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>Country</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th width="20%"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="company in ctrl.allCompanyDetails">
+                    <td><span ng-bind="company.companyId"></span></td>
+                    <td><span ng-bind="company.companyName"></span></td>
+                    <td><span ng-bind="company.address"></span></td>
+                    <td><span ng-bind="company.city"></span></td>
+                    <td><span ng-bind="company.country"></span></td>
+                    <td><span ng-bind="company.phone"></span></td>
+                    <td><span ng-bind="company.email"></span></td>
+                    <td>
+                        <button type="button" ng-click="ctrl.editCompanyDetails(company.companyId)" class="btn btn-success custom-width">Edit</button>
+                        <button type="button" ng-click="ctrl.openBeneficiaryDetailPage(company.companyId)" class="btn btn-success custom-width">Add BO</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

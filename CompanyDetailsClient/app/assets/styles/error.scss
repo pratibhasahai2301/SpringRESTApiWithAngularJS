@@ -1,0 +1,45 @@
+.error-page{
+  margin-top: 50px;
+  @include breakpoint(phone){
+    margin-top: 30px;
+  }
+
+  @include breakpoint(tablet){
+    margin-top: 50px;
+    margin-bottom: 0;
+  }
+}
+
+.error-heading{
+  color:$error-page-title-color;
+  font-size:$error-page-title-font;
+}
+
+.error-para{
+  @include breakpoint(phone){
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  p{
+    color:$error-para-color !important;
+    font-size:$error-para-font !important;
+    line-height: 29px;
+  }
+}
+
+.error-para-top{
+  @extend .error-para;
+  margin-top: 4px;
+  p{
+    line-height: 18px;
+    @include breakpoint(phone){
+      line-height: 29px;
+    }
+  }
+}
+
+@include breakpoint(phone){
+.error-page .cd-container {
+      padding:0 !important;
+  }
+}
