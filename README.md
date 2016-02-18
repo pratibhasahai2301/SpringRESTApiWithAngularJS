@@ -63,6 +63,12 @@ Testing webservice with cURL:
 
 Considerations
 --------------
-**Authentication Protocol/Method**
+* **Authentication Protocol/Method**
+        We can use HTTP Basic authentication (but over SSL only). We can use a special HTTP header where we add 'username:password' encoded in base64. Since they are encoded and not encrypted so it will very easy to retrieve the username and password from a basic authentication. That is why we need to use it over SSL only.
 
-**Making the service redundant**
+    We can also create temporary tokens(OAuth) for a user for each session and to validate we can pass these tokens as a parameter to the webservice. On the reciept of the token, we can decrypt the token service to validate the user.
+
+* **Service Redundancy**
+To make the service redundant, one thing we can do is to loosely couple the service with the database server. Probably we can make a separate module that connects to the database using Hibernate and fetches the records for us.
+
+
