@@ -7,7 +7,6 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.util.UriComponentsBuilder;
 
 import com.pratibha.rest.companydetails.model.BeneficialOwner;
 import com.pratibha.rest.companydetails.model.Company;
@@ -60,19 +58,7 @@ public class CompanyDetailsServiceController {
 		return new ResponseEntity<Company>(company, HttpStatus.OK);
 	}
 
-	/*@RequestMapping(value = "/company/{name}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Company> getCompanyByName(
-			@PathVariable("name") String name) {
-		Company company = companyDetailsService.findByCompanyName(name);
-		if (company == null) {
-			logger.info("Company with name " + name + " not found");
-			return new ResponseEntity<Company>(HttpStatus.NOT_FOUND);
-		}
-		return new ResponseEntity<Company>(company, HttpStatus.OK);
-	}*/
-
-	// -------------------Create a
-	// Company--------------------------------------------------------
+	//----Create a Company-----
 
 	@RequestMapping(value = "/create_company", method = RequestMethod.POST)
 	public ResponseEntity<Void> createCompany(@RequestBody Company company) {
@@ -142,29 +128,6 @@ public class CompanyDetailsServiceController {
 		return new ResponseEntity<Company>(currentCompany, HttpStatus.OK);
 	}
 
-	/**
-	 * Static class for BeneficalOwnerRequest
-	 *
-	 */
-	public static final class BeneficialOwnerRequest {
-		List<BeneficialOwner> beneficialOwners;
-
-		/**
-		 * @return the beneficialOwners
-		 */
-		public List<BeneficialOwner> getBeneficialOwners() {
-			return beneficialOwners;
-		}
-
-		/**
-		 * @param beneficialOwners
-		 *            the beneficialOwners to set
-		 */
-		public void setBeneficialOwners(List<BeneficialOwner> beneficialOwners) {
-			this.beneficialOwners = beneficialOwners;
-		}
-
-	}
 
 	/**
 	 * Logger for {@link CompanyDetailsServiceController}
